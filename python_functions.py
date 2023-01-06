@@ -68,12 +68,12 @@
 # when you are calling a function that's defined with keyword arguments, it
 # isn't necessary to use them at all
 
-from datetime import timedelta, datetime
+# from datetime import timedelta, datetime
 
-def arrival_time(hours=52):
-    now = datetime.now
-    arrival = now + timedelta(hours=hours)
-    return arrival.strftime("Arrival: %A %H:%M")
+# def arrival_time(hours=51):
+#     now = datetime.now
+#     arrival = now + timedelta(hours=hours)
+#     return arrival.strftime("Arrival: %A %H:%M")
 
 # >>> arrival_time() # run in console
 
@@ -81,4 +81,45 @@ def arrival_time(hours=52):
 # one when you're calling a function.
 # >>> arrival_time(hours=0) # run in console
 
-# mixig arguments and keyword arguments
+# mixing arguments and keyword arguments
+# from datetime import timedelta, datetime
+
+# def arrival_time(destination, hours=51):
+#     now = datetime.now
+#     arrival = now + timedelta(hours=hours)
+#     return arrival.strftime(f"{destination} Arrival: %A %H:%M")
+
+
+# Use variable arguments in Python
+# when using variable arguments the functions allows any number of arguments 
+# to be passed in
+# The syntax of using variable arguments is prefixing a single asterix (*) 
+# before the argument's name
+
+# def variable_length(*args):
+#     print(args)
+
+# def sequence_time(*args):
+#     total_minutes = sum(args)
+#     if total_minutes < 60:
+#         return f"Total time to launch is {total_minutes} minutes"
+#     else:
+#         return f"Total time to launch is {total_minutes/60} hours"
+
+# # print(sequence_time(4, 14, 18))
+# print(sequence_time(4, 14, 48))
+
+# variable keyword arguments
+# for a function to accept any number of keyword arguments, a double asterix
+# is required
+# def variable_length(**kwargs):
+#     print(kwargs)
+
+# print(variable_length(tanks=1, day="Wednesday", pilots=3))
+
+def crew_members(**kwargs):
+    print(f"{len(kwargs)} astronauts assigned ftor this mission:")
+    for title, name in kwargs.items():
+        print(f"{title}: {name}")
+
+crew_members(captain="Neil Armstrong", pilot="Buzz Aldrin", command_pilot="Michael Collins")
